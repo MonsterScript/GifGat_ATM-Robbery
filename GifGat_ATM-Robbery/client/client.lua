@@ -22,6 +22,7 @@ exports['qb-target']:AddTargetModel(atmtargets, {
                             return
                         end
                         TriggerEvent('gifgat:startrobbery')
+                        TriggerServerEvent('gifgat:server:deteleitem', deteleitem)
                         TriggerServerEvent('police:server:policeAlert', 'ATM Bombing in progress')
                     else
                         QBCore.Functions.Notify("You Dont Have The Equipment Needed")
