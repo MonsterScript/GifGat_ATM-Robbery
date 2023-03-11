@@ -26,14 +26,18 @@ QBCore.Functions.CreateCallback("gifgat:weapon_stickybomb", function(source, cb,
     local weapon_stickybomb = nil
     if Player.Functions.GetItemByName("weapon_stickybomb") then
         weapon_stickybomb = true
-        Player.Functions.RemoveItem('weapon_stickybomb', 1)
-        TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['weapon_stickybomb'], 'remove')
     else
         weapon_stickybomb = false
     end
     return cb(weapon_stickybomb)
 end)
 
+RegisterNetEvent('gifgat:server:deteleitem', function(deteleitem) 
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(source)
+    Player.Functions.RemoveItem('weapon_stickybomb', 1)
+    TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['weapon_stickybomb'], 'remove')
+end)
 
 RegisterNetEvent('gifgat:server:Reward', function(cashProp, cash)
     local src = source
